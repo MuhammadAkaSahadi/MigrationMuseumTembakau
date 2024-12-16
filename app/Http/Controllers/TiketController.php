@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AdminKoleksiController extends Controller
+class TiketController extends Controller
 {
     //
 }
