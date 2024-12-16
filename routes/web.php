@@ -55,7 +55,8 @@ Route::middleware(AdminMiddleware::class)->group(function () {
     Route::delete('admin/koleksi/{id}', [KoleksiController::class, 'destroy'])->name('admin.koleksi.destroy');
 
     //  
-    Route::get('admin/admintiket/readadminkoleksi', [AdminController::class, 'readAdminTiket'])->name('admin.read_admintiket');
+    Route::get('admin/admintiket/readadmintiket', [AdminController::class, 'readAdminTiket'])->name('admin.read_admintiket');
+    Route::get('admin/admindonasi/readadmindonasi', [AdminController::class, 'readAdminDonasi'])->name('admin.read_admindonasi');
 });
 
 
