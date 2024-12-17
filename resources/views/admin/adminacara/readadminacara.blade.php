@@ -13,10 +13,7 @@
             Tambah Acara
         </button>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            @if ($acaras->isEmpty())
-            <p>Tidak ada acara yang tersedia saat ini.</p>
-            @else
-                @foreach ($acaras as $acara)
+            @forelse ($acaras as $acara)
                 <div class="w-full max-w-sm mx-auto rounded-lg shadow-md overflow-hidden bg-white relative">
                     <!-- Bagian Gambar --> 
                     <div class="relative h-56 w-full">
@@ -51,8 +48,9 @@
                         <a href="{{ route('acara.detail', $acara->acara_id) }}" class="text-blue-500 hover:underline">Baca Selengkapnya</a>
                     </div>
                 </div>                    
-                @endforeach
-            @endif
+            @empty
+                <p>Tidak ada acara yang tersedia saat ini.</p>
+            @endforelse
         </div>
     </div>
 </main>

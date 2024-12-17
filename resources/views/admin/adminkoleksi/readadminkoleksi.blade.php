@@ -12,10 +12,7 @@
             Tambah koleksi
         </button>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            @if ($koleksis->isEmpty())
-            <p>Tidak ada koleksi yang tersedia saat ini.</p>
-            @else
-                @foreach ($koleksis as $koleksi)
+            @forelse ($koleksis as $koleksi)
                 <div class="w-full max-w-sm mx-auto rounded-lg shadow-md overflow-hidden bg-white relative">
                     <!-- Bagian Gambar --> 
                     <div class="relative h-56 w-full">
@@ -44,14 +41,15 @@
                     </div>
                     <!-- Detail koleksi -->
                     <div class="px-5 py-4">
-                        <h3 class="text-gray-700 uppercase font-semibold text-lg">{{ $koleksi->judul}}</h3>
-                        <p class="text-gray-500 text-sm mt-1">{{ $koleksi->deskripsi_singkat}}</p>
+                        <h3 class="text-gray-700 uppercase font-semibold text-lg">{{ $koleksi->judul }}</h3>
+                        <p class="text-gray-500 text-sm mt-1">{{ $koleksi->deskripsi_singkat }}</p>
                         <a href="{{ route('koleksi.detail', $koleksi->koleksi_id) }}" class="text-blue-500 hover:underline">Baca Selengkapnya</a>
                     </div>
                 </div>                    
-                @endforeach
-            @endif
-        </div>
+            @empty
+                <p>Tidak ada koleksi yang tersedia saat ini.</p>
+            @endforelse
+        </div>        
     </div>
 </main>
 
